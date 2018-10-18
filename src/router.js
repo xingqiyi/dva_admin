@@ -4,11 +4,14 @@ import IndexPage from './routes/IndexPage';
 import Products from './routes/Products';
 import Users from './routes/Users';
 
+// import BasicLayout from './layouts/BasicLayout';
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
+         <Route path="/" exact component={IndexPage} />
+       
 
         <Route path="/products" exact component={Products} />
         <Route path="/users" exact component={Users} />

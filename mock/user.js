@@ -81,7 +81,7 @@ export default {
     ],
 
   },
-  
+
   'POST /api/login/account': (req, res) => {
     const { password, userName, type } = req.body;
     if (password === '888888' && userName === 'admin') {

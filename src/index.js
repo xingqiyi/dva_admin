@@ -6,13 +6,13 @@ import './index.css';
 // const app = dva();
 
 const app = dva({
-  initialState: {
-    my_products: [
-      { name: 'dva', id: 1 },
-      { name: 'antd', id: 2 },
-    ],
- 
-  },
+  // initialState: {
+  //   // my_products: [
+  //   //   { name: 'dva', id: 1 },
+  //   //   { name: 'antd', id: 2 },
+  //   // ],
+
+  // },
 });
 
 

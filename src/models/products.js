@@ -4,7 +4,14 @@ export default {
   namespace: 'my_products',
   state: [],
   reducers: {
-    delete(state, { payload: id }) {
+    querySuccess(state, { payload: id }) {
+
+      return [
+        { name: 'dva', id: 1 },
+        { name: 'antd', id: 2 },
+      ];
+    },
+    'delete'(state, { payload: id }) {
       return state.filter(item => item.id !== id);
     },
   },
@@ -22,6 +29,16 @@ export default {
   // 数据源可以是当前的时间、服务器的 websocket 连接、
   // keyboard 输入、geolocation 变化、history 路由变化等等
   subscriptions: {
+    setup({ dispatch, history }) {
+      history.listen(location => {
+        if (location.pathname === '/products') {
+          dispatch({
+            type: 'querySuccess',
+            payload: {}
+          });
+        }
+      });
+    },
     keyEvent({ dispatch }) {
       key('⌘+up, ctrl+up', () => {
 

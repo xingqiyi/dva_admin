@@ -62,10 +62,10 @@ export default {
     createSuccess() { },
     deleteSuccess(state, { payload: id }) {
 
-      state.list = state.list.filter(item => item.id !== id);
-      return state;
+      let list = state.list.filter(item => item.id !== id);
+      // return state;
 
-
+      return { ...state, list }
 
     },
     updateSuccess() { },
