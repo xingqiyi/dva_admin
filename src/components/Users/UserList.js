@@ -9,6 +9,8 @@ const UserList = ({
   current,
   loading,
   dataSource,
+
+  onDelete,
 }) => {
   const columns = [{
     title: '姓名',
@@ -30,7 +32,7 @@ const UserList = ({
       <p>
         <a onClick={() => { }}>编辑</a>
         &nbsp;
-        <Popconfirm title="确定要删除吗？" onConfirm={() => { }}>
+        <Popconfirm title="确定要删除吗？" onConfirm={() => onDelete(record.id)}>
           <a>删除</a>
         </Popconfirm>
       </p>

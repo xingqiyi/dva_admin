@@ -4,7 +4,7 @@ import { hashHistory } from 'dva/router';
 import { query } from '../services/users';
 
 export default {
-  namespace: 'users',
+  namespace: 'my_users',
 
   state: {
     list: [],
@@ -60,9 +60,15 @@ export default {
       return { ...state, ...action.payload, loading: false };
     },
     createSuccess() { },
-    deleteSuccess() { },
+    deleteSuccess(state, { payload: id }) {
+
+      state.list = state.list.filter(item => item.id !== id);
+      return state;
+
+
+
+    },
     updateSuccess() { },
   }
 }
 
-// http://jsonplaceholder.typicode.com/users

@@ -16,14 +16,15 @@ import UserModal from '../components/Users/UserModal';
 // 可以暂时新建一个空的
 import styles from './Users.less';
 
-function Users({ location, dispatch, users }) {
+// function Users({ location, dispatch, my_users }) {
+const Users = ({ location, dispatch, my_users }) => {
 
-  console.info(users);
+  console.info(my_users);
 
   const {
     loading, list, total, current,
     currentItem, modalVisible, modalType
-  } = users;
+  } = my_users;
 
   const userSearchProps = {};
   const userListProps = {
@@ -31,9 +32,17 @@ function Users({ location, dispatch, users }) {
     current,
     loading,
     dataSource: list,
+
+    onDelete: handleDelete,
   };
   const userModalProps = {};
 
+  function handleDelete(id) {
+    dispatch({
+      type: 'my_users/deleteSuccess',
+      payload: id,
+    })
+  }
   return (
     <div className={styles.normal}>
       {/* 用户筛选搜索框 */}
@@ -46,12 +55,10 @@ function Users({ location, dispatch, users }) {
   );
 }
 
-
 // 指定订阅数据，这里关联了 users
-function mapStateToProps({ users }) {
-  return { users };
+function mapStateToProps({ my_users }) {
+  return { my_users };
 }
-
 
 // 建立数据关联关系
 export default connect(mapStateToProps)(Users);

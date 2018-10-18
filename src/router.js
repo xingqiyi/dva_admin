@@ -11,7 +11,7 @@ function RouterConfig({ history }) {
         <Route path="/" exact component={IndexPage} />
 
         <Route path="/products" exact component={Products} />
-        <Route path="/users" component={Users} />
+        <Route path="/users" exact component={Users} />
       </Switch>
     </Router>
   );
